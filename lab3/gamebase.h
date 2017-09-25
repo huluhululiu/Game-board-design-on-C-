@@ -1,0 +1,29 @@
+#ifndef GAMEBASE_H
+#define GAMEBASE_H
+
+#include <vector>
+#include <string>
+#include <iostream>
+#include "gameb.h"
+#include "gamep.h"
+using namespace std;
+class gamebase {
+public:
+	gamebase(int, int,int);
+	static gamebase* gamestart(int argc, char* argv[]);
+	virtual void print() = 0;
+	virtual bool done() = 0;
+	virtual bool stalemate() = 0;;
+	virtual void prompt(unsigned & col, unsigned & row);
+	virtual void turn() = 0;
+	virtual int play();
+protected:
+	unsigned int cols;
+	unsigned int rows;
+	vector<gp> v;
+	int moves;
+	unsigned int long_string;
+	
+};
+
+#endif
